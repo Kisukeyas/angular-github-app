@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { OpenIssueComponent } from './open-issue/open-issue.component';
+import { ClosedIssueComponent } from './closed-issue/closed-issue.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OpenIssueComponent,
+    ClosedIssueComponent
   ],
   imports: [
     BrowserModule,
