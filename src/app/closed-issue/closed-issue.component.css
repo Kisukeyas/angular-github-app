@@ -1,0 +1,9 @@
+.box{
+    margin: 50px ;
+}
+
+.list{
+    list-style: none;
+    border: 2px solid black;
+    margin: 10px;
+}
