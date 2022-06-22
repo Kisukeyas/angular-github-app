@@ -6,4 +6,13 @@
     list-style: none;
     border: 2px solid black;
     margin: 10px;
+    display: flex;
+}
+
+.issue{
+    margin: 0 0 0 50px;
+}
+
+.btn{
+    padding: 50px;
 }

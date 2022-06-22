@@ -1,8 +1,11 @@
 <div class="box">
     <ul>
         <li *ngFor="let news of NewsApi" class="list">
-            <h3 class="title">Title: {{news.title}}</h3>
-            <p class="content">{{news.content}}</p>
+            <div class="issue">
+                <h3 class="title">Title: {{news.title}}</h3>
+                <p class="content">{{news.content}}</p>
+            </div>
+            <button type="button" class="btn">Complete</button>
         </li>
     </ul>
 </div>
