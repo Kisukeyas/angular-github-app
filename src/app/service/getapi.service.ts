@@ -2,13 +2,24 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetapiService {
 
-  newsApiUrl = "https://newsapi.org/v2/everything?q=apple&from=2022-06-20&to=2022-06-20&sortBy=popularity&apiKey=d4a833d70e5d4b86a66b90304a52d52a";
+  gitHubApiUrl = "https://api.github.com/repos/Kisukeyas/angular-github-app/issues";
+  OpenApiUrl = this.gitHubApiUrl + "?state=open";
+  ClosedApiUrl = this.gitHubApiUrl + "?state=closed";
+  NewIssue = {};
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type" : "apprication/json",
+      Authorization: ""
+    })
+  }
 
   http: HttpClient;
 
@@ -16,9 +27,18 @@ export class GetapiService {
     this.http = http;
   }
 
-  getApi(): Observable<any>{ 
-    return this.http.get(this.newsApiUrl);
+  getOpenApi(): Observable<any>{ 
+    return this.http.get(this.OpenApiUrl);
   };
+
+  getClosedApi(): Observable<any>{ 
+    return this.http.get(this.ClosedApiUrl);
+  };
+
+  postOpenApi(): Observable<any>{ 
+    return this.http.post(this.OpenApiUrl,this.NewIssue,this.httpOptions);
+  };
+
 
 
 }

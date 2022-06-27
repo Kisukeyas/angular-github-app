@@ -9,20 +9,14 @@ import { GetapiService } from "../service/getapi.service";
 export class ClosedIssueComponent implements OnInit {
 
   getApiService: GetapiService;
-  NewsApi:any = [];
+  IssueApi:any = [];
 
   constructor(getApiService: GetapiService) {
     this.getApiService = getApiService;
   }
 
   ngOnInit(): void {
-    const self = this;
-    this.getApiService.getApi().subscribe(
-      function (news) {
-        console.log(news);
-        return self.NewsApi= news.articles;
+    this.getApiService.getClosedApi().subscribe(issue => this.IssueApi= issue);
       }
-    )
-  }
 
 }

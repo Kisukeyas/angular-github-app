@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { OpenIssueComponent } from './open-issue/open-issue.component';
 import { ClosedIssueComponent } from './closed-issue/closed-issue.component';
 import { GetapiService } from "./service/getapi.service";
+import { NewIssueComponent } from './new-issue/new-issue.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OpenIssueComponent,
-    ClosedIssueComponent
+    ClosedIssueComponent,
+    NewIssueComponent
   ],
   imports: [
     BrowserModule,
