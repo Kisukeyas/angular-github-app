@@ -13,6 +13,7 @@ export class GetapiService {
   OpenApiUrl = this.gitHubApiUrl + "?state=open";
   ClosedApiUrl = this.gitHubApiUrl + "?state=closed";
   token = "hogeeeee";
+  text = "hoge";
 
   private httpOptions = {
     headers: new HttpHeaders({
