@@ -11,6 +11,7 @@ export class NewIssueComponent implements OnInit {
 
   ngOnInit(): void {
     this.getToken();
+    
   }
 
   post(){

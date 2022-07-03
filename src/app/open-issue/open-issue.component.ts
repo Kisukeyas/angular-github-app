@@ -18,5 +18,6 @@ export class OpenIssueComponent implements OnInit {
 
   ngOnInit(): void {
     this.getApiService.getOpenApi().subscribe(issue => this.IssueApi= issue);
+    this.getApiService.postOpenApi({title:"hoge"}).subscribe();
       }
   }
