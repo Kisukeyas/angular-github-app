@@ -12,7 +12,8 @@ export class GetapiService {
   gitHubApiUrl = "https://api.github.com/repos/Kisukeyas/angular-github-app/issues";
   OpenApiUrl = this.gitHubApiUrl + "?state=open";
   ClosedApiUrl = this.gitHubApiUrl + "?state=closed";
-  token = "null";
+  token = "hoge";
+  text = "hoge";
 
   private httpOptions = {
     headers: new HttpHeaders({
