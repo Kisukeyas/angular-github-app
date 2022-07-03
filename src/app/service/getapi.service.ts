@@ -12,12 +12,12 @@ export class GetapiService {
   gitHubApiUrl = "https://api.github.com/repos/Kisukeyas/angular-github-app/issues";
   OpenApiUrl = this.gitHubApiUrl + "?state=open";
   ClosedApiUrl = this.gitHubApiUrl + "?state=closed";
-  NewIssue = {};
+  token = "hoge";
 
   private httpOptions = {
     headers: new HttpHeaders({
       "Content-Type" : "apprication/json",
-      Authorization: ""
+      "Authorization": `Bearer ${this.token}`,
     })
   }
 
@@ -35,8 +35,8 @@ export class GetapiService {
     return this.http.get(this.ClosedApiUrl);
   };
 
-  postOpenApi(): Observable<any>{ 
-    return this.http.post(this.OpenApiUrl,this.NewIssue,this.httpOptions);
+  postOpenApi(Issue:any): Observable<any>{ 
+    return this.http.post(this.OpenApiUrl,Issue,this.httpOptions);
   };
 
 
