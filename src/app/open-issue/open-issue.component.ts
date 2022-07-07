@@ -22,9 +22,7 @@ export class OpenIssueComponent implements OnInit {
   getOpenApi(){
     this.getApiService.getOpenApi().subscribe(issue => this.IssueApi= issue);
   }
-  closeApi(){
-    const number = document.getElementById("number") as HTMLInputElement;
-    console.log(number.value);
-    this.getApiService.CloseApi({"state":"closed"},number.value).subscribe();
+  closeApi(issue:any){
+    this.getApiService.CloseApi({"state":"closed"},issue.number).subscribe();
   }
   }

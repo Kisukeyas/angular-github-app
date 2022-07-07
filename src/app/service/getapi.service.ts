@@ -35,7 +35,7 @@ export class GetapiService {
   };
 
   CloseApi(Issue:any,number:any): Observable<any>{ 
-    return this.http.put(this.gitHubApiUrl+`/${number}`,Issue,this.httpOptions);
+    return this.http.patch(this.gitHubApiUrl+"/"+number,Issue,this.httpOptions);
   };
 
 
