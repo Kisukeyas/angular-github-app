@@ -1,10 +1,12 @@
 <div class="box">
     <ul>
+        <button type="submit" (click)="getCloseApi()">Get Closed Issues</button>
         <li *ngFor="let news of IssueApi" class="list">
             <div class="issue">
                 <h3 class="title">Title: {{news.title}}</h3>
                 <p class="content">{{news.body}}</p>
             </div>
         </li>
+
     </ul>
 </div>

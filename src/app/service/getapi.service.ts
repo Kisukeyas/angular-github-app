@@ -10,26 +10,20 @@ import { HttpHeaders } from "@angular/common/http";
 export class GetapiService {
 
   gitHubApiUrl = "https://api.github.com/repos/Kisukeyas/angular-github-app/issues";
-  OpenApiUrl = this.gitHubApiUrl + "?state=open";
   ClosedApiUrl = this.gitHubApiUrl + "?state=closed";
-  token = "hogeeeee";
-  text = "hoge";
 
   private httpOptions = {
     headers: new HttpHeaders({
       "Content-Type" : "apprication/json",
-      "Authorization": `Bearer ${this.token}`,
+      "Authorization": `Bearer ${this.getToken()}`,
     })
   }
 
-  http: HttpClient;
-
-  constructor(http: HttpClient) {
-    this.http = http;
+  constructor(private http: HttpClient) {
   }
 
   getOpenApi(): Observable<any>{ 
-    return this.http.get(this.OpenApiUrl);
+    return this.http.get(this.gitHubApiUrl);
   };
 
   getClosedApi(): Observable<any>{ 
@@ -37,8 +31,19 @@ export class GetapiService {
   };
 
   postOpenApi(Issue:any): Observable<any>{ 
-    return this.http.post(this.OpenApiUrl,Issue,this.httpOptions);
+    return this.http.post(this.gitHubApiUrl,Issue,this.httpOptions);
   };
+
+  CloseApi(Issue:any,number:any): Observable<any>{ 
+    return this.http.put(this.gitHubApiUrl+`/${number}`,Issue,this.httpOptions);
+  };
+
+
+  getToken(){
+    const token = prompt("Please Tell me you parsonal access token");
+    console.log(token);
+    return token;
+  }
 
 
 

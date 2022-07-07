@@ -19,4 +19,8 @@ export class ClosedIssueComponent implements OnInit {
     this.getApiService.getClosedApi().subscribe(issue => this.IssueApi= issue);
       }
 
+  getCloseApi(){
+    this.getApiService.getClosedApi().subscribe(issue => this.IssueApi= issue);
+  }
+
 }

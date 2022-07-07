@@ -10,7 +10,6 @@ export class OpenIssueComponent implements OnInit {
 
   getApiService: GetapiService;
   IssueApi:any = [];
-  NewIssue:any = [];
 
   constructor(getApiService: GetapiService) {
     this.getApiService = getApiService;
@@ -18,6 +17,14 @@ export class OpenIssueComponent implements OnInit {
 
   ngOnInit(): void {
     this.getApiService.getOpenApi().subscribe(issue => this.IssueApi= issue);
-    this.getApiService.postOpenApi({title:"hoge"}).subscribe();
       }
+
+  getOpenApi(){
+    this.getApiService.getOpenApi().subscribe(issue => this.IssueApi= issue);
+  }
+  closeApi(){
+    const number = document.getElementById("number") as HTMLInputElement;
+    console.log(number.value);
+    this.getApiService.CloseApi({"state":"closed"},number.value).subscribe();
+  }
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetapiService } from "../service/getapi.service";
 
 @Component({
   selector: 'app-new-issue',
@@ -7,24 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewIssueComponent implements OnInit {
 
-  constructor() { }
+  constructor(private getApiService: GetapiService) { }
 
   ngOnInit(): void {
-    this.getToken();
-    
   }
 
   post(){
     const title = document.getElementById("title") as HTMLInputElement;
     const comment = document.getElementById("comment") as HTMLInputElement;
-    console.log(title.value);
-    console.log(comment.value);
+    const obj = {"title": title.value,"body":comment.value};
+    console.log(obj);
+    this.getApiService.postOpenApi(obj).subscribe();
+    title.value = "";
+    comment.value = "";
   };
-
-  getToken(){
-    const token = prompt("Please Tell me you parsonal access token");
-    console.log(token);
-    return token;
-  }
-
 }
