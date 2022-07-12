@@ -10,17 +10,22 @@ export class ClosedIssueComponent implements OnInit {
 
   getApiService: GetapiService;
   IssueApi:any = [];
+  public loading = "";
 
   constructor(getApiService: GetapiService) {
     this.getApiService = getApiService;
   }
 
   ngOnInit(): void {
-    this.getApiService.getClosedApi().subscribe(issue => this.IssueApi= issue);
+    this.getCloseApi();
       }
 
   getCloseApi(){
-    this.getApiService.getClosedApi().subscribe(issue => this.IssueApi= issue);
+    setTimeout(() => {
+      this.loading = "hidden";
+    }, 500);
+    this.getApiService.getClosedApi().subscribe({next:(issue) => {this.IssueApi= issue},error:() => {console.log("error")},complete:() =>{console.log("finish")}});
+    this.loading = "visible";
   }
 
 }

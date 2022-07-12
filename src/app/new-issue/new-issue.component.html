@@ -1,10 +1,18 @@
 <div class="issue-box">
     <h2>New Issues</h2>
-    <form method="post" action="#" class="issue-content">
+    <form method="post" action="#" class="issue-content" [formGroup]="registrationForm">
         <p>Title</p>
-        <input type="text" id="title">
+        <input type="text" id="title" [formControl]="title">
+        <span *ngIf="title.errors?.['required']">
+            Titleは必須項目です。
+          </span>
         <p>Comment</p>
-        <input type="text" id="comment">
+        <input type="text" id="comment" [formControl]="comment">
+        <span *ngIf="comment.errors?.['required']">
+            Commentは必須項目です。
+          </span>
     </form>
-    <button type="submit" (click)="post()">New Issues</button>
+    <button type="submit" (click)="post()" [disabled]="registrationForm.invalid">New Issues</button>
+    <br>
+    <button type="submit" (click)="resetToken()">Reset Token</button>
 </div>

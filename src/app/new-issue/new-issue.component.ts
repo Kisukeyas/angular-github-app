@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetapiService } from "../service/getapi.service";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-new-issue',
@@ -8,7 +9,19 @@ import { GetapiService } from "../service/getapi.service";
 })
 export class NewIssueComponent implements OnInit {
 
-  constructor(private getApiService: GetapiService) { }
+  public registrationForm: FormGroup;
+  public title: FormControl;
+  public comment: FormControl;
+
+  constructor(private getApiService: GetapiService,private builder:FormBuilder) { 
+    this.title = new FormControl('', [Validators.required]);
+    this.comment = new FormControl('', [Validators.required]);
+
+    this.registrationForm = this.builder.group({
+     title: this.title,
+     comment: this.comment
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -21,5 +34,18 @@ export class NewIssueComponent implements OnInit {
     this.getApiService.postOpenApi(obj).subscribe();
     title.value = "";
     comment.value = "";
+    this.registrationForm.reset();
   };
+
+  resetToken(){
+    let token = localStorage.getItem('appToken')
+    if (token) {
+      localStorage.removeItem('appToken');
+      token = prompt("Please Tell me you parsonal access token");
+      localStorage.setItem('appToken',token as string);
+    }
+    console.log(token);
+    return token;
+  }
+
 }

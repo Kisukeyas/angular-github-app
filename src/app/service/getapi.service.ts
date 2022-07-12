@@ -40,7 +40,11 @@ export class GetapiService {
 
 
   getToken(){
-    const token = prompt("Please Tell me you parsonal access token");
+    let token = localStorage.getItem('appToken')
+    if (token === "null") {
+      token = prompt("Please Tell me you parsonal access token");
+      localStorage.setItem('appToken',token as string);
+    }
     console.log(token);
     return token;
   }
