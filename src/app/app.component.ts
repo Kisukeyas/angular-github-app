@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-github-app';
+
+  resetToken(){
+    let token = localStorage.getItem('appToken')
+    if (token) {
+      localStorage.removeItem('appToken');
+      token = prompt("Please Tell me you parsonal access token");
+      localStorage.setItem('appToken',token as string);
+    }
+    console.log(token);
+    return token;
+  }
 }

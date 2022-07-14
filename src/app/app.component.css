@@ -1,21 +1,32 @@
-h1 {
-    text-align: center;
-  }
-  
-  .btn {
-    margin: 0 50px;
-  }
+.header{
+  display: flex;
+  padding: 16px 32px;
+  font-size: 14px;
+  align-items: center;
+  background-color: #8999ad;
+}
 
-  .btn-box {
-    padding: 0;
-    margin: auto;
-    max-width: 1000px;
-  
-    /* flexbox */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    align-items: flex-start;
-  }
+.logo{
+  margin-right: 16px;
+  align-self: stretch;
+}
+
+.nav-bar{
+  font-weight: 600;
+  padding: 16px auto;
+}
+
+.link{
+  margin-right: 16px;
+  text-decoration: none;
+  color: white;
+}
+
+.token{
+  margin: auto 0 auto auto;
+  padding: 6px 12px;
+  border: 0.5px solid black;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

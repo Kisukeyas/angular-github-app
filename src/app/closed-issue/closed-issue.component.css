@@ -1,11 +1,33 @@
 .box{
-    margin: 50px ;
+    margin: 40px ;
 }
 
 .list{
+    display: flex;
+    align-items: flex-start;
     list-style: none;
-    border: 2px solid black;
-    margin: 10px;
+    padding: 8px 16px 8px 32px;
+    border: 1px solid hsla(210,18%,87%,1);
+    margin-top: -1px;
+}
+
+.sub-logo{
+    padding-right: 8px;
+}
+
+.closed.octicon.octicon-issue-closed{
+    color: #8250df;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.comment{
+    font-size: 14px;
+    margin-top: 4px;
+
 }
 
 .loading {

@@ -28,8 +28,11 @@ export class OpenIssueComponent implements OnInit {
     this.loading = "visible";
   }
   closeApi(issue:any){
+    setTimeout(() => {
+      this.loading = "hidden";
+    }, 500);
     this.getApiService.CloseApi({"state":"closed"},issue.number).subscribe();
-    this.getOpenApi();
+    this.loading = "visible";
   }
 
   }

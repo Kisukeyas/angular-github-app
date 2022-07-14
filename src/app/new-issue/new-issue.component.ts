@@ -32,20 +32,9 @@ export class NewIssueComponent implements OnInit {
     const obj = {"title": title.value,"body":comment.value};
     console.log(obj);
     this.getApiService.postOpenApi(obj).subscribe();
-    title.value = "";
-    comment.value = "";
     this.registrationForm.reset();
   };
 
-  resetToken(){
-    let token = localStorage.getItem('appToken')
-    if (token) {
-      localStorage.removeItem('appToken');
-      token = prompt("Please Tell me you parsonal access token");
-      localStorage.setItem('appToken',token as string);
-    }
-    console.log(token);
-    return token;
-  }
+  
 
 }

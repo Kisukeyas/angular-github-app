@@ -1,20 +1,35 @@
 .box{
-    margin: 50px ;
+    margin: 40px ;
 }
 
 .list{
-    list-style: none;
-    border: 2px solid black;
-    margin: 10px;
     display: flex;
+    align-items: flex-start;
+    list-style: none;
+    padding: 8px 16px 8px 32px;
+    border: 1px solid hsla(210,18%,87%,1);
+    margin-top: -1px;
 }
 
-.issue{
-    margin: 0 0 0 50px;
+.sub-logo{
+    padding-right: 8px;
 }
 
-.btn{
-    padding: 50px;
+.title{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.comment{
+    font-size: 14px;
+    margin-top: 4px;
+
+}
+
+.check{
+    margin: auto 0 auto auto;
+    transform: scale(1.5);
+
 }
 
 .loading {
