@@ -15,7 +15,7 @@ export class GetapiService {
   private httpOptions = {
     headers: new HttpHeaders({
       "Content-Type" : "apprication/json",
-      "Authorization": `Bearer ${this.getToken()}`,
+      "Authorization": `token ${this.getToken()}`,
     })
   }
 
