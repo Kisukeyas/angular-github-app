@@ -10,6 +10,7 @@ export class AppComponent {
 
   resetToken(){
     let token = localStorage.getItem('appToken')
+    localStorage.setItem('appToken',token as string);
     if (token) {
       localStorage.removeItem('appToken');
       token = prompt("Please Tell me you parsonal access token");
